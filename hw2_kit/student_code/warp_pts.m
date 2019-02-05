@@ -20,7 +20,8 @@ function [ warped_pts ] = warp_pts( video_pts, logo_pts, sample_pts)
 [ H ] = est_homography(video_pts, logo_pts);
 
 % YOUR CODE HERE
+xp = H*[sample_pts;ones(1,numel(sample_pts(1,:)))];
 
-warped_pts = [];
+warped_pts = [xp(1,:)./xp(3,:) ; xp(2,:)./xp(3,:)];
 end
 

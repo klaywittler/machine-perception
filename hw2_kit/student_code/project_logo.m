@@ -32,7 +32,7 @@ projected_imgs = cell(num_test, 1);
 
 % Process all the images
 for i=1:num_test
-    i
+    
     % Read the next video frame
     video_imgs{i} = imread(sprintf('data/barcalona/images/barca_real/barca_real%03d.png',test_images(i)));
     
@@ -52,3 +52,6 @@ for i=1:num_test
         interior_pts,...
         warped_logo_pts); 
 end
+
+%play_video(projected_imgs)
+%save_images(projected_imgs)

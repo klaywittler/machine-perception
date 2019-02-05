@@ -9,7 +9,17 @@ function [ H ] = est_homography(video_pts, logo_pts)
 % Written for the University of Pennsylvania's Robotics:Perception course
 
 % YOUR CODE HERE
-H = [];
+A = zeros(numel(video_pts(:,1))*numel(video_pts(1,:)),9);
+for i=1:numel(video_pts(1,:))
+    ax = [-video_pts(1,i), -video_pts(2,i), -1, 0,0,0, video_pts(1,i)*logo_pts(1,i), video_pts(2,i)*logo_pts(1,i), logo_pts(1,i)];
+    ay = [0,0,0, -video_pts(1,i), -video_pts(2,i), -1, video_pts(1,i)*logo_pts(2,i), video_pts(2,i)*logo_pts(2,i), logo_pts(2,i)];
+    A(2*i-1:2*i,:) = [ax;ay];
+end
+
+[~, ~ , V] = svd (A) ;
+
+
+H = reshape(V(:,end),[3,3])';
 
 end
 

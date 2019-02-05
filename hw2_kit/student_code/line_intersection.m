@@ -7,6 +7,6 @@ function [pt] = line_intersection(l1, l2)
 %   pt - intersection point in normalized homogenous coordinates
 %         if it is a point at infinity don't normalize
 
-    pt = [];
+    pt = cross(l1,l2);
 
 end

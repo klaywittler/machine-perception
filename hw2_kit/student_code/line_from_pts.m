@@ -6,7 +6,7 @@ function [l] = line_from_pts(p1, p2)
 % Returns
 %  l - line in homogenous coordinates
 
-l = [];
+l = cross(p1,p2);
 
 end
 
