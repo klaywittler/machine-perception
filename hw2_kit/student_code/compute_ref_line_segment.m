@@ -19,8 +19,8 @@ function [vanishing_pt, top_pt, bottom_pt] = compute_ref_line_segment(ref, ll, l
 
 lL = line_from_pts(ll,ul);
 lR = line_from_pts(lr,ur);
-lB = line_from_pts(ul,ur);
-lU = line_from_pts(ll,lr);
+lB = line_from_pts(ll,lr);
+lU = line_from_pts(ul,ur);
 
 vanishing_pt = line_intersection(lL,lR);
 
