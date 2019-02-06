@@ -6,7 +6,11 @@ function [l] = line_from_pts(p1, p2)
 % Returns
 %  l - line in homogenous coordinates
 
-l = cross(p1,p2);
+lN = cross(p1,p2);
+mag = norm(lN(1:2));
+
+
+l = lN/mag;
 
 end
 
