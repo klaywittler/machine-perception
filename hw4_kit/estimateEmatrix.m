@@ -6,14 +6,15 @@ function E = estimateEmatrix(X1,X2)
 
 % Kronecker products
 % Your code goes here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-A = 
+A = [X1(:,1).*X2 , X1(:,2).*X2, X1(:,3).*X2];
 
 
 [U,S,V] = svd(A);
-E = 
+E = V(:,rank(A));
 
 % Project E on the space of essential matrices
-
+[U,S,V] = svd(E);
+E = U*diag([1,1,0])*V';
 
 
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

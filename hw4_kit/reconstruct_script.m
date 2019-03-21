@@ -6,7 +6,7 @@
 % This can be done once at the beginning of your Matlab session
 % (You can add the command to your startup.m file)
 %
-% run('[path-to-vlfeat]/toolbox/vl_setup.m');
+run('vlfeat-0.9.21\toolbox\vl_setup.m');
 
 clear
 load images
@@ -43,13 +43,13 @@ showMatches(images{1},images{2},...
 % Once you are done with this part
 
 load calib_images
-K = vanishingCalibration(calib_images{1}); % or 2,3...
+% K = vanishingCalibration(calib_images{1}); % or 2,3...
 
 % The output of your calibration should be 
 % close to the following matrix:
-% K = [552 0  307.5;...
-%      0  552 205;...
-%      0   0   1 ];
+K = [552 0  307.5;...
+     0  552 205;...
+     0   0   1 ];
 %
 % In the following parts, you can use this K matrix
 % even if your calibration seems too different
@@ -61,8 +61,8 @@ U2 = f{2}(1:2,matches(2,:))';
 
 % Compute calibrated coordinates
 % Your code goes here %%%%%%%%%%%%%%%%%%%%%
-X1 =    % as a function of U1 and K
-X2 =    % as a function of U2 and K
+X1 = (K\[U1, ones(numel(U1(:,1)),1)]')';   % as a function of U1 and K
+X2 = (K\[U2, ones(numel(U1(:,1)),1)]')';   % as a function of U2 and K
 
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%%
 
