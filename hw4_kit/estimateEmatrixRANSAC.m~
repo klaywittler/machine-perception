@@ -19,7 +19,7 @@ bestNInliers = 0;
 
 for i=1:nIterations
     indices = randperm(size(X1,1));
-    sampleInd = indices(1:sampleSize);
+    sampleInd = indices(1:sampleSizee);
     testInd =  indices(sampleSize+1:length(indices));
     
     % Your code goes here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

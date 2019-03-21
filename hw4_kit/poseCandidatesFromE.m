@@ -47,5 +47,10 @@ transfoCandidates(4).R = R2;
 end
 
 function w = veemap(R)
+    n = size(R');
+    if n(1) == 3
     w = [-R(2,3); R(1,3); -R(1,2)];
+    else 
+    w = [0 -R(3) R(2); R(3) 0 -R(1); -R(2) R(1) 0];
+    end
 end

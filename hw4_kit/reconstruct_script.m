@@ -71,7 +71,7 @@ X2 = X2(:,1:2);
 
 
 % Flip this flag to true in the RANSAC part
-useRANSAC = false;
+useRANSAC = true;
 if useRANSAC==false
     % First method: just SVD
     E = estimateEmatrix(X1,X2);
