@@ -15,7 +15,9 @@ subplot(1,2,1)
 imshow(im1);
 hold on; 
 % Your code goes here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-P2proj = 
+P2proj = K*(R*P1' + T);
+% P2proj = K*(R*[P1, ones(numel(P1(:,1)),1)]' + T);
+% P2proj = K*R'*([P1, ones(numel(P1(:,1)),1)]' - T);
 
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -32,7 +34,9 @@ subplot(1,2,2)
 imshow(im2);
 hold on; 
 % Your code goes here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-P1proj = 
+P1proj = K*R'*(P2' - T);
+% P1proj = K*R'*([P2, ones(numel(P2(:,1)),1)]' - T);
+% P1proj = K*(R*[P2, ones(numel(P2(:,1)),1)]' + T);
 
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

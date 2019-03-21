@@ -6,7 +6,8 @@
 % This can be done once at the beginning of your Matlab session
 % (You can add the command to your startup.m file)
 %
-run('vlfeat-0.9.21\toolbox\vl_setup.m');
+% run('vlfeat-0.9.21\toolbox\vl_setup.m');
+run('vlfeat-0.9.21/toolbox/vl_setup.m');
 
 clear
 load images
@@ -63,6 +64,8 @@ U2 = f{2}(1:2,matches(2,:))';
 % Your code goes here %%%%%%%%%%%%%%%%%%%%%
 X1 = (K\[U1, ones(numel(U1(:,1)),1)]')';   % as a function of U1 and K
 X2 = (K\[U2, ones(numel(U1(:,1)),1)]')';   % as a function of U2 and K
+X1 = X1(:,1:2);
+X2 = X2(:,1:2);
 
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%%
 

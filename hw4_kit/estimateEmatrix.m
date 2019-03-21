@@ -6,15 +6,16 @@ function E = estimateEmatrix(X1,X2)
 
 % Kronecker products
 % Your code goes here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+X1 = [X1, ones(numel(X1(:,1)),1)];
+X2 = [X2, ones(numel(X2(:,1)),1)];
 A = [X1(:,1).*X2 , X1(:,2).*X2, X1(:,3).*X2];
 
+[~,~,Vstar] = svd(A);
+Estar = Vstar(:,rank(A));
 
-[U,S,V] = svd(A);
-E = V(:,rank(A));
-
+Ep = reshape(Estar,[3,3])';
 % Project E on the space of essential matrices
-[U,S,V] = svd(E);
+[U,~,V] = svd(Ep);
 E = U*diag([1,1,0])*V';
-
 
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

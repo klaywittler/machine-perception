@@ -8,9 +8,44 @@ transfoCandidates = repmat(struct('T',[],'R',[]),[4 1]);
 % The order does not matter.
 
 % Your code goes here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Rpz = [0 -1 0; 1 0 0; 0 0 1];
+Rnz = [0 1 0; -1 0 0; 0 0 1];
 
+[U,S,V] = svd(E);
 
+T1hat = U*Rpz*S*U';
+T1 = veemap(T1hat);
+R1 = U*Rpz'*V';
 
+transfoCandidates(1).T = T1;
+transfoCandidates(1).R = R1;
 
+T2hat = U*Rnz*S*U';
+T2 = veemap(T2hat);
+R2 = U*Rnz'*V';
+
+transfoCandidates(2).T = T2;
+transfoCandidates(2).R = R2;
+
+[U,S,V] = svd(-E);
+
+T1hat = U*Rpz*S*U';
+T1 = veemap(T1hat);
+R1 = U*Rpz'*V';
+
+transfoCandidates(3).T = T1;
+transfoCandidates(3).R = R1;
+
+T2hat = U*Rnz*S*U';
+T2 = veemap(T2hat);
+R2 = U*Rnz'*V';
+
+transfoCandidates(4).T = T2;
+transfoCandidates(4).R = R2;
 
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+end
+
+function w = veemap(R)
+    w = [-R(2,3); R(1,3); -R(1,2)];
+end
