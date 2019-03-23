@@ -13,7 +13,7 @@ A = [X1(:,1).*X2 , X1(:,2).*X2, X1(:,3).*X2];
 [~,~,Vstar] = svd(A);
 Estar = Vstar(:,rank(A));
 
-Ep = reshape(Estar,[3,3])';
+Ep = reshape(Estar,[3,3]);
 % Project E on the space of essential matrices
 [U,~,V] = svd(Ep);
 E = U*diag([1,1,0])*V';

@@ -6,8 +6,8 @@
 % This can be done once at the beginning of your Matlab session
 % (You can add the command to your startup.m file)
 %
-% run('vlfeat-0.9.21\toolbox\vl_setup.m');
-run('vlfeat-0.9.21/toolbox/vl_setup.m');
+run('vlfeat-0.9.21\toolbox\vl_setup.m');
+% run('vlfeat-0.9.21/toolbox/vl_setup.m');
 
 clear
 load images
@@ -71,13 +71,19 @@ X2 = X2(:,1:2);
 
 
 % Flip this flag to true in the RANSAC part
+loadRANSAC = false;
 useRANSAC = true;
-if useRANSAC==false
-    % First method: just SVD
-    E = estimateEmatrix(X1,X2);
+if loadRANSAC
+    load('E_matrix128.mat');
+    load('inliers128.mat');
 else
-    % RANSAC
-    [E, inliers] = estimateEmatrixRANSAC(X1,X2);
+    if useRANSAC==false
+        % First method: just SVD
+        E = estimateEmatrix(X1,X2);
+    else
+        % RANSAC
+        [E, inliers] = estimateEmatrixRANSAC(X1,X2);
+    end
 end
 
 % Show the epipolar lines based on E

@@ -16,8 +16,7 @@ imshow(im1);
 hold on; 
 % Your code goes here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 P2proj = K*(R*P1' + T);
-% P2proj = K*(R*[P1, ones(numel(P1(:,1)),1)]' + T);
-% P2proj = K*R'*([P1, ones(numel(P1(:,1)),1)]' - T);
+% P2proj = K*R'*(P1' - T);
 
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -35,8 +34,7 @@ imshow(im2);
 hold on; 
 % Your code goes here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 P1proj = K*R'*(P2' - T);
-% P1proj = K*R'*([P2, ones(numel(P2(:,1)),1)]' - T);
-% P1proj = K*(R*[P2, ones(numel(P2(:,1)),1)]' + T);
+% P1proj = K*(R*P2' + T);
 
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

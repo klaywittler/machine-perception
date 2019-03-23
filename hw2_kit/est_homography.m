@@ -1,4 +1,4 @@
-function [ H ] = est_homography(video_pts, logo_pts)
+function [ H ] = estimate_homography(video_pts, logo_pts)
 % est_homography estimates the homography to transform each of the
 % video_pts into the logo_pts
 % Inputs:

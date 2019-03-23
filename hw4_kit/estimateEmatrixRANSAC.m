@@ -26,11 +26,11 @@ for i=1:nIterations
 
     E_sample = estimateEmatrix(X1(sampleInd,:),X2(sampleInd,:));
     
-    residuals = d(X1(testInd,:),X2(testInd,:),E_sample) + d(X2(testInd,:),X1(testInd,:),E_sample); % Vector of residuals, same length as testInd.
+    residuals = d(X1(testInd,:),X2(testInd,:),E_sample).^2 + d(X2(testInd,:),X1(testInd,:),E_sample).^2; % Vector of residuals, same length as testInd.
                             % Can be vectorized code (extra-credit) 
                             % or a for loop on testInd
     
-    curInliers = sum(residuals < eps);            % don't forget to include the sampleInd
+    curInliers = indices(residuals < eps);            % don't forget to include the sampleInd
 
     % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
@@ -43,7 +43,7 @@ for i=1:nIterations
     end
 end
 
-disp(['Best number of inliers: ' bestNInliers '/' size(X1,1)]); 
+disp(['Best number of inliers: ', num2str(bestNInliers), '/', num2str(size(X1,1))]); 
 
 end
 
