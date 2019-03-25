@@ -8,7 +8,7 @@ transfoCandidates = repmat(struct('T',[],'R',[]),[4 1]);
 % The order does not matter.
 
 % Your code goes here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Rpz = [0 -1 0; 1 0 0; 0 0 1];
+Rpz = [0, -1, 0; 1, 0, 0; 0, 0, 1];
 
 [U,~,V] = svd(E);
 

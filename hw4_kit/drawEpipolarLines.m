@@ -10,7 +10,7 @@ F = K'\E/K;                        % 3 x 3 fundamental matrix
 
 U1p = [U1, ones(numel(U1(:,1)),1)]';
 U2p = [U2, ones(numel(U2(:,1)),1)]';
-epiLines1 = F*U2p;               % 3 x number of points, 
+epiLines1 = F'*U2p;               % 3 x number of points, 
                            % each column contains the normal to 
                            % epi(U2) in image 1
 

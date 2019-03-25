@@ -8,13 +8,13 @@ function [E, bestInliers] = estimateEmatrixRANSAC(X1,X2)
 % bestInliers: indices of the rows of X1 (and X2) that where in the
 % largest consensus set
 
-nIterations = 500;
+nIterations = 5*500;
 sampleSize = 8;
 
 %fractionInliers = 0.6;
 %nInliers = floor((size(X1,1) - sampleSize) * fractionInliers);
 %bestError = Inf;
-eps = 10^(-4);
+eps = 10^(-5);
 bestNInliers = 0;
 
 for i=1:nIterations
@@ -26,7 +26,7 @@ for i=1:nIterations
 
     E_sample = estimateEmatrix(X1(sampleInd,:),X2(sampleInd,:));
     
-    residuals = d(X1(testInd,:),X2(testInd,:),E_sample).^2 + d(X2(testInd,:),X1(testInd,:),E_sample).^2; % Vector of residuals, same length as testInd.
+    residuals = d(X1(testInd,:),X2(testInd,:),E_sample) + d(X2(testInd,:),X1(testInd,:),E_sample'); % Vector of residuals, same length as testInd.
                             % Can be vectorized code (extra-credit) 
                             % or a for loop on testInd
     
