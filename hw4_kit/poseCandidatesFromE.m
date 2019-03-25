@@ -9,38 +9,25 @@ transfoCandidates = repmat(struct('T',[],'R',[]),[4 1]);
 
 % Your code goes here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Rpz = [0 -1 0; 1 0 0; 0 0 1];
-Rnz = [0 1 0; -1 0 0; 0 0 1];
 
-[U,S,V] = svd(E);
+[U,~,V] = svd(E);
 
-T1hat = U*Rpz*S*U';
-T1 = veemap(T1hat);
 R1 = U*Rpz'*V';
+R2 = rodrigues(U(:,3),pi)*R1;
 
-transfoCandidates(1).T = T1;
+transfoCandidates(1).T = U(:,3);
 transfoCandidates(1).R = R1;
-
-T2hat = U*Rnz*S*U';
-T2 = veemap(T2hat);
-R2 = U*Rnz'*V';
-
-transfoCandidates(2).T = T2;
+transfoCandidates(2).T = -U(:,3);
 transfoCandidates(2).R = R2;
 
-[U,S,V] = svd(-E);
+[U,~,V] = svd(-E);
 
-T1hat = U*Rpz*S*U';
-T1 = veemap(T1hat);
 R1 = U*Rpz'*V';
+R2 = rodrigues(U(:,3),pi)*R1;
 
-transfoCandidates(3).T = T1;
+transfoCandidates(3).T = U(:,3);
 transfoCandidates(3).R = R1;
-
-T2hat = U*Rnz*S*U';
-T2 = veemap(T2hat);
-R2 = U*Rnz'*V';
-
-transfoCandidates(4).T = T2;
+transfoCandidates(4).T = -U(:,3);
 transfoCandidates(4).R = R2;
 
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -53,4 +40,8 @@ function w = veemap(R)
     else 
     w = [0 -R(3) R(2); R(3) 0 -R(1); -R(2) R(1) 0];
     end
+end
+
+function R = rodrigues(u,theta)
+    R = eye(3)*cos(theta) + u*u'*(1-cos(theta))+ veemap(u)*sin(theta);
 end
