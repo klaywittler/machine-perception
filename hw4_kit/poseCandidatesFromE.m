@@ -12,23 +12,18 @@ Rpz = [0, -1, 0; 1, 0, 0; 0, 0, 1];
 
 [U,~,V] = svd(E);
 
+T = U(:,3)/norm(U(:,3));
 R1 = U*Rpz'*V';
-R2 = rodrigues(U(:,3),pi)*R1;
+R2 = rodrigues(T,pi)*R1;
 
-transfoCandidates(1).T = U(:,3);
+transfoCandidates(1).T = T;
 transfoCandidates(1).R = R1;
-transfoCandidates(2).T = -U(:,3);
+transfoCandidates(2).T = -T;
 transfoCandidates(2).R = R2;
-
-[U,~,V] = svd(-E);
-
-R1 = U*Rpz'*V';
-R2 = rodrigues(U(:,3),pi)*R1;
-
-transfoCandidates(3).T = U(:,3);
-transfoCandidates(3).R = R1;
-transfoCandidates(4).T = -U(:,3);
-transfoCandidates(4).R = R2;
+transfoCandidates(3).T = T;
+transfoCandidates(3).R = -R1;
+transfoCandidates(4).T = -T;
+transfoCandidates(4).R = -R2;
 
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 end

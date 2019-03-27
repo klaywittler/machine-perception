@@ -8,7 +8,7 @@ function [E, bestInliers] = estimateEmatrixRANSAC(X1,X2)
 % bestInliers: indices of the rows of X1 (and X2) that where in the
 % largest consensus set
 
-nIterations = 5*500;
+nIterations = 10*500;
 sampleSize = 8;
 
 %fractionInliers = 0.6;

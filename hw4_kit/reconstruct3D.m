@@ -25,7 +25,7 @@ for i=1:length(transfoCandidates)
     lambdas{i} = zeros(2,nPoints);
     for pt=1:nPoints
         % Your code goes here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        lambdas{i}(:,pt) =  [[X2(pt,:), 1]', -R*[X1(pt,:), 1]']\(T./norm(T));         
+        lambdas{i}(:,pt) =  [[X2(pt,:), 1]', -R*[X1(pt,:), 1]']\(T);         
                                      % fill in least-squares optimal
                                      % [lambda_2; lambda_1] 
                                      % for a given pair

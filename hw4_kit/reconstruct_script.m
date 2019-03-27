@@ -71,7 +71,7 @@ X2 = X2(:,1:2);
 
 
 % Flip this flag to true in the RANSAC part
-loadRANSAC = true;
+loadRANSAC = false;
 useRANSAC = true;
 if loadRANSAC
     load('Ematrix89.mat');
