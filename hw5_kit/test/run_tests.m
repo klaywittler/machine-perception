@@ -1,0 +1,2 @@
+addpath('..');
+out = runtests('.');
