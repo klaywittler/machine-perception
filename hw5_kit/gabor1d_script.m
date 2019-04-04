@@ -6,15 +6,15 @@ clear
 [s,s_w] = incrFreqWave(1000);
 
 % Filter period (in '1d pixels')
-T_f = 20
+T_f = 20;
 % Generate the filter
 [g1, g2] = gaborFilter1D(T_f, T_f, 3*T_f);
 
 % Compute the output
 % Your code goes here %%%%%%%%%%%%%%%%%%%%
-r1 = 
-r2 = 
-energy = 
+r1 = g1;
+r2 = g2;
+energy = sqrt(r1.^2 + r2.^2);
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%
 
 figure(1)

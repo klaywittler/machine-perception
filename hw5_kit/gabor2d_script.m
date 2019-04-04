@@ -12,9 +12,9 @@ theta = 30;
 
 % Compute the response
 % Your code goes here %%%%%%%%%%%%%%%%%%%%
-r1 = 
-r2 = 
-energy = 
+r1 = g1;
+r2 = g2;
+energy = sqrt(r1.^2 + r2.^2);
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%
 
 figure(2)
