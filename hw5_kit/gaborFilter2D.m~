@@ -17,7 +17,7 @@ function [filter_cos,filter_sin] = gaborFilter2D(T_f, theta, Sigma, len)
 % use gaussian2d.m
 R = [cos(theta) -sin(theta); sin(theta) cos(theta)];
 
-g = gaussian2d(R*Sigma*R',len);
+g = gaussian2d(R*Sigma,len);
 
 [x,y] = meshgrid(-len/2 + 0.5:1:len/2 - 0.5);
 x_theta = x*cos(theta) - y*sin(theta);
