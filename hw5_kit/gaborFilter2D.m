@@ -19,9 +19,10 @@ g = gaussian2d(Sigma,len);
 
 [x,y] = meshgrid(-len/2 + 0.5:1:len/2 - 0.5);
 x_theta = x*cos(theta) + y*sin(theta);
+y_theta = -x*sin(theta) + y*cos(theta);
 
-filter_cos = g.*cos((2*pi/T_f)*x_theta);
-filter_sin = g.*sin((2*pi/T_f)*x_theta);
+filter_cos = g.*cos((2*pi/T_f)*x + theta);
+filter_sin = g.*sin((2*pi/T_f)*y + theta);
 
 
 

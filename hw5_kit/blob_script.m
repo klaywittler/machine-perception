@@ -55,7 +55,7 @@ smax = smax(indkeep);
 % Keep only local maxima that have a response above
 % 50% of the maximum response over the whole 3D scale
 % space
-scale_max = scales(scales > 0.5*max(scales,[],'all'));
+% scale_max = scales(scales > 0.5*max(scales,[],'all'));
 
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -69,7 +69,7 @@ plot(xmax,ymax,'bs');
 for i=1:length(xmax)
     % Compute radius of the blob as a function of sigma and k
     % Your code goes here %%%%%%%%%%%%%%%%%%%%%%
-    r = 0
+    r = k*sigma*smax(i);
     % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%
     
     % Plot circles, using Matlab's rectangle function

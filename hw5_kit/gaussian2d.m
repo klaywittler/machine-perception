@@ -15,6 +15,7 @@ function g = gaussian2d(Sigma, len)
 
 [x,y] = meshgrid(-len/2 + 0.5:1:len/2 - 0.5);
 z = (x.^2)/Sigma(1,1) + (y.^2)/Sigma(2,2);
-g = (1/(sqrt(2*pi*Sigma(1,1)*Sigma(2,2))))*exp(-0.5*z);
+g = exp(-0.5*z);
+g = g/sum(sum(g));
 
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%

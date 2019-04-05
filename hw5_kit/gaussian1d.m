@@ -20,6 +20,7 @@ function g = gaussian1d(sigma, len)
 % Your code goes here %%%%%%%%%%%%%%%%%%%%%%
 % use gaussian1d.m
 x = linspace(-len/2 + 0.5, len/2 - 0.5, len);
-g = (1/(sqrt(2*pi)*sigma))*exp(-0.5*(x/sigma).^2);
+g = exp(-0.5*(x/sigma).^2);
+g = g/sum(g);
  
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%
