@@ -17,5 +17,8 @@ function dog = dog1d(sigma, k, len)
 
 % Your code goes here %%%%%%%%%%%%%%%%%%%%%%
 % use gaussian1d.m
-
+x = linspace(-len/2 + 0.5, len/2 - 0.5, len);
+g = gaussian1d(sigma,len);
+gk = gaussian1d(k*sigma,len);
+dog = gk-g;
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%

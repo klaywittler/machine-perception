@@ -12,8 +12,8 @@ theta = 30;
 
 % Compute the response
 % Your code goes here %%%%%%%%%%%%%%%%%%%%
-r1 = g1;
-r2 = g2;
+r1 = conv2(im,g1,'same');
+r2 = conv2(im,g2,'same');
 energy = sqrt(r1.^2 + r2.^2);
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%
 

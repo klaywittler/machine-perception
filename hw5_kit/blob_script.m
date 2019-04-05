@@ -28,10 +28,9 @@ for i=1:n_scales+1
     fSize = 10*sigma_i;
     % Your code starts here %%%%%%%%%%%%%%%%%%%%
     % convolve with gaussians to build the scale space
+    g = gaussian1d(sigma_i,n_scales+1);
     
-    
-    
-    scales(:,:,i) = 
+    scales(:,:,i) = conv2(conv2(im,g,'same'),g','same');
     % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%
 end
 
@@ -56,7 +55,7 @@ smax = smax(indkeep);
 % Keep only local maxima that have a response above
 % 50% of the maximum response over the whole 3D scale
 % space
-
+scale_max = scales(scales > 0.5*max(scales,[],'all'));
 
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -70,7 +69,7 @@ plot(xmax,ymax,'bs');
 for i=1:length(xmax)
     % Compute radius of the blob as a function of sigma and k
     % Your code goes here %%%%%%%%%%%%%%%%%%%%%%
-    r = 
+    r = 0
     % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%
     
     % Plot circles, using Matlab's rectangle function

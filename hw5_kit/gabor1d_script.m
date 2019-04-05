@@ -12,8 +12,8 @@ T_f = 20;
 
 % Compute the output
 % Your code goes here %%%%%%%%%%%%%%%%%%%%
-r1 = g1;
-r2 = g2;
+r1 = conv(s,g1);
+r2 = conv(s,g2);
 energy = sqrt(r1.^2 + r2.^2);
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%
 

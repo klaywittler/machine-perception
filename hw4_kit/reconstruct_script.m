@@ -71,11 +71,11 @@ X2 = X2(:,1:2);
 
 
 % Flip this flag to true in the RANSAC part
-loadRANSAC = false;
+loadRANSAC = true; %change this to run the algorithm or to load a saved matrix
 useRANSAC = true;
 if loadRANSAC
-    load('Ematrix89.mat');
-    load('inliers89.mat');
+    load('Ematrix72.mat');
+    load('inliers72.mat');
 else
     if useRANSAC==false
         % First method: just SVD

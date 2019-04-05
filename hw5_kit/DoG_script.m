@@ -21,8 +21,8 @@ for i=1:length(k_range)
     % Your code starts here %%%%%%%%%%%%%%%%%%%%%%%
     % Generate the two Gaussians, take the difference and multiply
     % by the right factor
-    DoG =                            % use dog1d.m
-    LoG_approx(i,:) =                % DoG multiplied by the
+    DoG = dog1d(sigma, k, fSize);                          % use dog1d.m
+    LoG_approx(i,:) =  DoG/((k-1)*sigma^2);              % DoG multiplied by the
                                      % scaling factor
     
     % Compute sum of squared differences between filter and approximation
