@@ -56,11 +56,12 @@ smax = smax(indkeep);
 % 50% of the maximum response over the whole 3D scale
 % space
 % scale_max = scales(scales > 0.5*max(scales,[],'all'));
+dmax = dog_max(dog_max([ymax,xmax,smax]) > 0.5*max(dog_max([ymax,xmax,smax]),[],'all'));
 
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-% Show image and detections
+ % Show image and detections
 figure();
 imagesc(im); colormap(gray);
 hold on;
