@@ -18,7 +18,7 @@ im = im - min(im(:));
 % Scale space parameters
 n_scales = 30;
 sigma = 3;
-k = sqrt(2);
+k = 1.1;
 
 % Create blurred versions of the image
 scales = zeros([size(im) n_scales+1]);
@@ -57,8 +57,10 @@ smax = smax(indkeep);
 % Keep only local maxima that have a response above
 % 50% of the maximum response over the whole 3D scale
 % space
+% scale_max = scales(scales > 0.5*max(scales,[],'all'));
+% dmax = dog_max(dog_max([ymax,xmax,smax]) > 0.5*max(dog_max([ymax,xmax,smax]),[],'all'));
 keep = false(size(ymax));
-dmax = 0.5*max(dog_max(:)); % 0.5*max(dog_max(ymax,xmax,smax),[],'all');
+dmax = 0.5*max(max(max(dog_max(ymax,xmax,smax)))); % 0.5*max(dog_max(ymax,xmax,smax),[],'all');
 for i=1:numel(xmax)
    if dog_max(ymax(i),xmax(i),smax(i)) > dmax
       keep(i) = true; 
@@ -79,7 +81,7 @@ plot(xmax,ymax,'bs');
 for i=1:length(xmax)
     % Compute radius of the blob as a function of sigma and k
     % Your code goes here %%%%%%%%%%%%%%%%%%%%%%
-    r = sqrt(2)*sigma*k^(smax(i)-1);
+    r = sqrt(2)*sigma*k^(smax(i)-1);%(scales(ymax(i),xmax(i),smax(i))*(k-1)*sigma^2);
     % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%
     
     % Plot circles, using Matlab's rectangle function
