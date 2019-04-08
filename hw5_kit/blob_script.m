@@ -56,8 +56,17 @@ smax = smax(indkeep);
 % 50% of the maximum response over the whole 3D scale
 % space
 % scale_max = scales(scales > 0.5*max(scales,[],'all'));
-dmax = dog_max(dog_max([ymax,xmax,smax]) > 0.5*max(dog_max([ymax,xmax,smax]),[],'all'));
-
+% dmax = dog_max(dog_max([ymax,xmax,smax]) > 0.5*max(dog_max([ymax,xmax,smax]),[],'all'));
+keep = false(size(ymax));
+dmax = 0.5*max(dog_max(ymax,xmax,smax),[],'all');
+for i=1:numel(xmax)
+   if dog_max(ymax(i),xmax(i),smax(i)) > dmax
+      keep(i) = true; 
+   end
+end
+ymax = ymax(keep);
+xmax = xmax(keep);
+smax = smax(keep);
 % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -70,7 +79,7 @@ plot(xmax,ymax,'bs');
 for i=1:length(xmax)
     % Compute radius of the blob as a function of sigma and k
     % Your code goes here %%%%%%%%%%%%%%%%%%%%%%
-    r = k*sigma*smax(i);
+    r = sqrt(2)*sigma*k^(smax(i));%(scales(ymax(i),xmax(i),smax(i))*(k-1)*sigma^2);
     % End of your code %%%%%%%%%%%%%%%%%%%%%%%%%
     
     % Plot circles, using Matlab's rectangle function
