@@ -4,6 +4,9 @@
 % to the right location in your code folder
 addpath('MinMaxFilterFolder');
 impath = 'sunflowers.jpg';
+% impath = 'dalmatian.jpg';
+% impath = 'pool.jpg';
+% impath = 'chessboard.jpg';
 
 % Load the image
 im = double(imread(impath));
