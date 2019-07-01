@@ -12,20 +12,32 @@ Drawing of referee line onto field of video field.
 
 3D reconstruction from two 2D images utilizing SIFT matches with epipolar constraints and RANSAC to recover the pose between the two images.
 ![](project2/images/images56/sift.png)
+
 SIFT correspondances.
+
 ![](project2/images/images56/RANSACinliers.png)
+
 RANSAC inliers.
+
 ![](project2/images/images56/epilines.png)
+
 Epipolar lines.
+
 ![](project2/images/images56/reconstruction.png)
+
 Reconstruction of scene.
+
 ![](project2/images/images56/reprojection.png)
+
 Reprojection of images in one scene into the other.
 
 ## project 3
 
 Scale invariant blob detection utilizing a difference of a Gaussian (DoG) filter over a scale space and determining which scale maximizes the filter.
 ![](project3/images/p2-2sunflower.png)
+
 Sunflower detection.
+
 ![](project3/images/p2-2pool.png)
+
 Billard balls detection.
