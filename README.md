@@ -3,7 +3,7 @@
 ## project 1
 
 Utilizing projective geometry and homographies to project an image onto a scene.
-![](project1/warped_images/warped_img108.png)
+![Projection of Penn Engineering Logo onto goal post of a video.](project1/warped_images/warped_img108.png)
 .caption[Projection of Penn Engineering Logo onto goal post of a video.]
 ![](project1/processed_images/processed_img1.png)
 .caption[Drawing of referre line onto field of video field.]
