@@ -6,7 +6,7 @@ Utilizing projective geometry and homographies to project an image onto a scene.
 ![](project1/warped_images/warped_img108.png)
 Projection of Penn Engineering Logo onto goal post of a video.
 ![](project1/processed_images/processed_img1.png)
-Drawing of referre line onto field of video field.
+Drawing of referee line onto field of video field.
 
 ## project 2
 
