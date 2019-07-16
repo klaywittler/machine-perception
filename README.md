@@ -52,4 +52,4 @@ Trained a network that predicts the location of keypoints given an image of an o
 
 Utilize the predicted keypoints to estimate the 6DoF pose of an object by aligning a CAD model to the detected keypoints.
 
-![](project4/images/train177.jpg)
+![](project4/images/train_177.jpg)
