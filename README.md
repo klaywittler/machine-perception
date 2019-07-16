@@ -44,3 +44,12 @@ Sunflower detection.
 ![](project3/images/p2-2pool.png)
 
 Billard balls detection.
+
+## project 4
+
+Trained a network that predicts the location of keypoints given an image of an object. 
+![](project4/images/test_pred_heatmaps.jpg)
+
+Utilize the predicted keypoints to estimate the 6DoF pose of an object by aligning a CAD model to the detected keypoints.
+
+![](project4/images/train177.jpg)
